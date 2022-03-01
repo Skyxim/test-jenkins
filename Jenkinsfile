@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('mysql'){
             agent{
-                image "mysql:5.7.37-oracle"
+              docker{  image "mysql:5.7.37-oracle"}
             }
             steps{
             sh 'echo "run mysql"'
@@ -11,7 +11,7 @@ pipeline {
         }
         stage('redis'){
             agent{
-                image "redis:5.0.14-bullseye"
+                docker{  image "redis:5.0.14-bullseye"}
             }
             steps{
                 sh 'echo "run redis"'
