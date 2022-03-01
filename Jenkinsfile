@@ -18,7 +18,6 @@ pipeline {
             }
         }
         stage('output'){
-            agent none
             steps{
                 sh 'echo $(docker ps)'
             }
