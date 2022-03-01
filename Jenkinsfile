@@ -1,11 +1,23 @@
 pipeline {
-    agent { docker 'maven:3.3.3' }
+    agent none
     stages {
-        stage('build') {
-            steps {
-                sh 'mvn --version'
-                sh 'echo "hello world"'
+        stage('mysql'){
+            agent{
+                image "mysql:5.7.37-oracle"
+            }
+            steps{
+            sh 'echo "run mysql"'
             }
         }
+        stage('redis'){
+            agent{
+                image "redis:5.0.14-bullseye"
+            }
+            steps{
+                sh 'echo "run redis"'
+            }
+        }
+
     }
+
 }
