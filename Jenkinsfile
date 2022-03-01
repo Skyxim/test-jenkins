@@ -17,7 +17,11 @@ pipeline {
                 sh 'echo "run redis"'
             }
         }
-
+        stage('output'){
+            agent none
+            steps{
+                docker ps
+            }
+        }
     }
-
 }
