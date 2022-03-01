@@ -7,6 +7,8 @@ pipeline {
             }
             steps{
             sh 'echo "run mysql"'
+                sh 'echo $(docker ps)'
+
             }
         }
         stage('redis'){
@@ -15,10 +17,6 @@ pipeline {
             }
             steps{
                 sh 'echo "run redis"'
-            }
-        }
-        stage('output'){
-            steps{
                 sh 'echo $(docker ps)'
             }
         }
