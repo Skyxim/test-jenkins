@@ -20,7 +20,7 @@ pipeline {
         stage('output'){
             agent none
             steps{
-                docker ps
+               echo `docker ps`
             }
         }
     }
